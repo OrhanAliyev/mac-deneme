@@ -1,0 +1,18 @@
+name: Mac Test
+on: [push, workflow_dispatch]
+
+jobs:
+  test:
+    runs-on: macos-latest
+    steps:
+      - name: Depoyu klonla (Checkout)
+        uses: actions/checkout@v4
+
+      - name: Dosyanın GitHub'a geldiğini doğrula
+        run: ls -la
+
+      - name: DMG dosyasını aç (Mount)
+        run: hdiutil attach app.dmg
+
+      - name: Açılan Mac diskini (Volumes) listele
+        run: ls -la /Volumes/
