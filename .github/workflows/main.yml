@@ -11,5 +11,12 @@ jobs:
       - name: DMG dosyasını aç (Mount)
         run: hdiutil attach app.dmg
 
-      - name: DMG Klasörünün İçine Bak
-        run: ls -la "/Volumes/OA Trade - Delta0x/"
+      - name: Uygulamayı Çalıştır (Test)
+        run: |
+          echo "Uygulama dosyaları kontrol ediliyor..."
+          ls -la "/Volumes/OA Trade - Delta0x/main.app/Contents/MacOS/"
+          
+          echo "-----------------------------------"
+          echo "Uygulama başlatılıyor..."
+          # Asıl çalıştırılabilir dosyayı tetikliyoruz
+          "/Volumes/OA Trade - Delta0x/main.app/Contents/MacOS/main"
